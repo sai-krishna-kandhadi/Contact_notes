@@ -92,3 +92,29 @@ contact-notes-system/
 3. **Async Processing**: Using Celery for background tasks to decouple note processing from the main application flow.
 
 4. **API Design**: RESTful endpoints with proper HTTP methods and status codes.
+
+## Design Trade-offs and Possible Improvements
+
+1. **Authentication**: While JWT provides a stateless and scalable authentication mechanism, it can lead to challenges in token revocation and management. Future improvements could include implementing refresh tokens or a mechanism for token invalidation.
+
+2. **Database**: The choice of PostgreSQL offers robust data handling, but it may introduce complexity in scaling. Consider exploring NoSQL options for certain use cases or implementing read replicas for better performance.
+
+3. **Async Processing**: Using Celery for background tasks is effective, but it adds operational overhead. Future improvements could involve exploring serverless architectures or lightweight alternatives to Celery for simpler use cases.
+
+4. **API Design**: The RESTful design is widely accepted, but it may not be the best fit for all scenarios. Investigating GraphQL could provide more flexibility in data retrieval and reduce over-fetching.
+
+## Feature Descriptions
+
+- **JWT-based authentication**: Securely authenticate users using JSON Web Tokens, allowing for stateless sessions and improved scalability.
+
+- **Full CRUD operations for Contacts and Notes**: Implement create, read, update, and delete operations for managing contact information and associated notes.
+
+- **Field normalization for note data**: Ensure consistency in note data by normalizing fields before storage, improving data integrity.
+
+- **Asynchronous note processing using Celery**: Offload time-consuming tasks to a background worker, enhancing the responsiveness of the application.
+
+- **RESTful API endpoints**: Provide a structured and standardized way to interact with the application, adhering to REST principles for better usability.
+
+- **SQLAlchemy ORM with PostgreSQL**: Utilize SQLAlchemy for database interactions, providing an abstraction layer that simplifies database operations and migrations.
+
+- **Automated testing**: Ensure code quality and reliability through automated tests, facilitating easier maintenance and updates.
